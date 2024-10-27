@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+
+class ATM{
+
+private:
+int balance ;
+
+public:
+
+ATM(int bal){
+    balance = bal;
+}
+
+int get_balance()
+{cout<<"your balance is "<<balance<<endl;}
+
+int with_drawal(int amount){
+    if(amount>balance)
+    {cout<<"Sorry! , you have lesser amount in balance "<<endl;}
+    else{
+        balance = balance - amount;
+   cout<<"your balance after withdrawal is "<<balance<<endl; }
+}
+
+void deposit(int amount ){
+    balance = balance + amount;
+    cout<<" you amount after deposit is "<<balance <<endl;
+}
+
+
+};
+int main(){
+
+
+ATM atm(1000);
+// atm.get_balance();
+// atm.with_drawal(450);
+
+// do{
+int choice, amount, success;
+char op;
+system("cls");
+cout<<"1. view Balance "<<endl;
+cout<<"2. cash withdrawal "<<endl;
+cout<<"3. cash deposit"<<endl;
+cout<<"4. Exit"<<endl;
+
+cout<<" enter your choice "<<" ";
+cin>>choice;
+
+
+
+switch(choice){
+    case 1: 
+    cout<<atm.get_balance();
+    break;
+
+    case 2:
+    cout<<" enter amount to be withdrawal =  "<<" ";
+    cin>>amount;
+    cout<<atm.with_drawal(amount);
+    break;
+
+    case 3:
+    cout<<" enter amount to be deposit = "<< " ";
+    cin>>amount;
+    atm.deposit(amount);
+    break;
+
+    case 4:
+    cout<<"Thank you for using ATM "<<endl;
+    break;
+
+    default:
+    cout<<"Invalid choice "<<endl;
+
+}
+// cout<<"\n Do you want to do another transcation  [y- yes / N - no]"<<" ";
+// cin>>op;
+
+//  } while(op == "y" || op == "N");
+
+    return 0;
+}
